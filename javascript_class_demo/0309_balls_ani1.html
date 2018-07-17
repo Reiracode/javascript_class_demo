@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<style>
+    .rect {
+        position: relative;
+        width: 50vw;
+        height: 50vw;
+
+    }
+
+    .ball {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        color: wheat;
+        border-radius: 50%;
+        background-color: red;
+    }
+</style>
+</head>
+
+<body>
+<div id="myd" class="rect">
+</div>
+
+<script>
+var myd = document.getElementById('myd');
+
+// random_color define
+// 1 不行
+var random_color_cle = (function() {
+    var result="#", i=0;
+    while (i<6) {
+        result += (Math.floor(Math.random()*16)).toString(16);
+        i++;
+    }
+    return function() {
+        return result;             
+    };
+})();
+// 2 ok
+function random_color() {
+    var result = "#", i = 0;
+    while (i < 6) {
+        result += (Math.floor(Math.random() * 16)).toString(16);
+        i++;
+    }
+    return result;
+}
+
+// 方法一:for loop settimeout-->call func-->random_color()
+// var func = (function () { 
+//     return function () {
+//     el = document.createElement('div');
+//     el.className = 'ball';
+//     x = parseInt(Math.random() * 800);
+//     y = parseInt(Math.random() * 600);
+//     size = 5 + parseInt(Math.random() * 30);
+//     el.style.left = x +'px';
+//     el.style.top = y + 'px';
+//     el.style.width = size +'px';
+//     el.style.height = size + 'px';
+//     el.style.background = random_color();
+    
+//     myd.appendChild(el);
+//         }
+// })();
+
+// for (i = 0; i < 100; i++) {
+//     setTimeout(func, 200 * i);
+// }
+
+
+
+//方法二:function sho 
+for (i=0;i<100;i++){
+    setTimeout(function () {
+    return function () {
+        el = document.createElement('div');
+        el.className = 'ball';
+
+        x = parseInt(Math.random() * 800);
+        y = parseInt(Math.random() * 600);
+        size = 5 + parseInt(Math.random() * 30);
+        color = parseInt(Math.random()*360);
+        colorA = parseInt(Math.random() * 100)+'%';
+        colorB = parseInt(Math.random() * 100)+'%';
+
+        el.style.left = x + 'px';
+        el.style.top = y + 'px';
+        el.style.width = size + 'px';
+        el.style.height = size + 'px';
+        // el.style.background = random_color();
+        // el.style.background = 'hsl('+ color +',100%,50%)';
+        el.style.background = 'hsl(' + color + ','+ colorA +','+ colorB +')';
+
+        myd.appendChild(el);
+        }
+    }(),500 * i)
+}
+
+    
+</script>
+
+</body>
+
+</html>

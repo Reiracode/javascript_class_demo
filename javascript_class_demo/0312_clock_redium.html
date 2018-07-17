@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .rect {
+            width: 800px;
+            height: 800px;
+            position: relative;
+            background-color: beige;
+            /* background: black; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        } 
+
+        .circle {
+            /* left: 5px;
+            top: 5px; */
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background-color: rgb(240, 245, 229);
+        }
+
+        .ball{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: olive;
+            /* 置中1  flex */
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            /*  置中2  line-height */
+            /* text-align: center;
+            line-height: 100px; */
+
+        }
+
+        .hand {
+            position: absolute;
+            top: 300px;
+            left: 300px;
+        }
+ 
+
+        .hand_sec {
+            position: absolute;
+            width: 1px;
+            height: 280px;
+            background-color: blue;
+            left: -0.5px;
+            top: -279px;
+            z-index: 99;
+        }
+
+        .hand_hh {
+            position: absolute;
+            width: 10px;
+            height: 180px;
+            background-color: pink;
+            left: -5px;
+            top: -175px;
+            z-index: 1;
+        }
+
+        .hand_mm {
+            position: absolute;
+            width: 10px;
+            height: 280px;
+            background-color: orange;
+            left: -5px;
+            top: -275px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rect" id='myd'>
+        <div class="circle">
+            <div class="hand">
+                <div class="hand_hh"></div>
+            </div>
+            <div class="hand">
+                <div class="hand_mm"></div>
+            </div>
+
+            <div class="hand">
+                <div class="hand_sec"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var cirlce = document.getElementsByClassName('circle');
+        var hand = document.getElementsByClassName('hand');
+         
+        // childElement   child:div.hand.sec
+        console.log(hand);
+        // console.log(hand[0]);
+        // console.log(hands);
+        var cirlce = document.getElementById('myd');
+        var ballnum = 12;
+        var angUnit = Math.PI * 2 / ballnum;
+
+        for (i = 0; i < ballnum; i++) {
+            el = document.createElement('div');
+            el.className = 'ball';
+
+            x = 400 -50 + 300 * Math.cos(angUnit * i - angUnit * 2);
+            y = 400 -50 + 300 * Math.sin(angUnit * i - angUnit * 2);
+
+            el.innerHTML = i+1;
+            el.style.left = x + 'px';
+            el.style.top = y + 'px';
+
+            myd.appendChild(el);
+
+        }
+
+        var i, now;
+
+        function doRun() {
+            var now = new Date;
+            var hour = now.getHours();
+            var minu = now.getMinutes()
+            var sec = now.getSeconds() + now.getMilliseconds() / 1000;
+            // 電波錶寫法+getMilliseconds  機械錶 不用加
+            var s;
+
+
+            for (s = 0; s < hand.length; s++) {
+                console.log(hand.length);
+                // var x =(s%3);
+                switch (s % 3) {
+                    case 2:
+                        hand[s].style.transform = 'rotate(' + sec * 6 + 'deg)';
+                        break;
+                    case 1:
+                        hand[s].style.transform = 'rotate(' + minu * 6 + 'deg)';
+                        break;
+                    case 0:
+                        hand[s].style.transform = 'rotate(' + (hour + minu / 60) * 30 + 'deg)';
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            setTimeout(doRun, 30)
+        }
+
+        doRun();
+              
+    </script>
+
+</body>
+
+</html>

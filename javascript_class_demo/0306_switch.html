@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form1" action="">
+        <input type="number" name="score" width="200px" value="0" max="100" min="0">
+        <br>
+        <button type="button" onclick="check()">send</button>
+    </form>
+
+    <div id="myd"></div>
+
+    <script>
+    var myd = document.getElementById("myd");
+
+    function check() {
+        var score = parseInt(document.form1.score.value);
+        var g = "";
+        var s2 = parseInt(score / 10);
+  
+//  把nestif改寫成switch  每個都要加break 否則只會到最後的default判斷式
+        switch (s2) {
+            case 10:
+            case 9:  
+                g = "A";
+                break;
+            case 8:
+                g = "B";
+                break;
+            case 7:
+                g = "C";
+                break;
+            case 6:
+                g = "D";
+                break;
+            case 5:
+                g = "E";
+                break;           
+            default:
+                g = "gg";
+                break;
+        }
+
+        // if (score >= 90){
+        //     g = "A";
+        // }else if (score >= 80){
+        //     g = "B";
+        // } else if (score >= 70) {
+        //     g = "C";
+        // } else if (score >= 60) {
+        //     g = "D";
+        // } else if (score >= 50) {
+        //     g = "E";
+        // }else{
+        //     g = "gg";
+        // }
+    
+        myd.innerHTML = g;
+    }
+
+    
+    </script>
+    
+</body>
+</html>

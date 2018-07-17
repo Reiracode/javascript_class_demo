@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myd"></div>
+    <script>
+    var ar = [];
+    var br = [];
+    
+    for(i=1; i<=42; i++){
+        ar.push(i);
+    }
+
+    myd.innerHTML += ar +'<br>';
+
+    //條件迴圈:ar 已經空了 就停
+    // 亂數決定取索引值 (0~41)  ar.length=42
+    // 一個個切下來
+    while(ar.length){
+        rnd = parseInt(Math.random() * ar.length);
+        cr = ar.splice(rnd,1);
+        // cr: 是長度=1的陣列，要取值=cr[0]
+        br.push(cr[0]);
+
+    }
+    myd.innerHTML += br + '<br>';
+    
+    
+    </script>
+    
+</body>
+</html>

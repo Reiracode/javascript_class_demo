@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .mystyle{
+        color:red;
+    }
+    </style>
+    
+</head>
+<!-- 輸入值 用nest if 判斷落點 -->
+<body>
+    <form name="form1" action="">
+        <input type="number" name="score" value="0"><br>
+
+        <button type="button" onclick="check()">send</button>
+    </form>
+
+    <div id="myd"></div>
+
+    <script>
+    var myd = document.getElementById("myd");
+
+    function check() {
+        var score = parseInt(document.form1.score.value);
+        var g = "";
+        
+        console.log(score);
+        if (score >= 90){
+            g = "A";
+        }else if (score >= 80){
+            g = "B";
+        } else if (score >= 70) {
+            g = "C";
+        } else if (score >= 60) {
+            g = "D";
+        } else if (score >= 50) {
+            g = "E";
+        }else{
+            g = "gg";
+        }
+    
+        myd.innerHTML = g;
+    }
+
+    
+    </script>
+    
+</body>
+</html>

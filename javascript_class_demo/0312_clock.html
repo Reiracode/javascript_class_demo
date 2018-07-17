@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    
+    .myd{
+        /* width: 600px;
+        height: 600px; */
+        height: 100vh;
+        /* background: black; */
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .circle{
+        position: relative;
+        width:600px;
+        height:600px;
+        border-radius: 50%;
+        background-color: beige;  
+    }
+        
+    .hand{
+        position: absolute;
+        top:300px;
+        left:300px;
+    }
+
+    /* .hands{
+        position: absolute;
+        top:300px;
+        left:300px;
+    } */
+
+    .hand_sec{
+        position: absolute;
+        width:1px;
+        height: 280px;
+        background-color: blue;
+        left:-0.5px;
+        top:-279px;
+        z-index: 1;
+    }
+
+    .hand_hh{
+        position: absolute;
+        width:10px;
+        height: 180px;
+        background-color: pink;
+        left:-5px;
+        top:-175px;
+        z-index: 1;
+    }
+
+    .hand_mm{
+        position: absolute;
+        width:10px;
+        height: 280px;
+        background-color:orange;
+        left:-5px;
+        top:-275px;
+    }
+
+</style>
+</head>
+<body>
+<div class="myd">
+    <div class="circle">
+        <div class="hand">
+            <div class="hand_hh"></div>
+        </div>
+        <div class="hand">
+            <div class="hand_mm"></div>
+        </div>
+
+        <div class="hand">
+            <div class="hand_sec"></div>
+        </div>
+    </div>
+
+    <div class="circle">
+        <div class="hand">
+            <div class="hand_hh"></div>
+        </div>
+        <div class="hand">
+            <div class="hand_mm"></div>
+        </div>
+    
+        <div class="hand">
+            <div class="hand_sec"></div>
+        </div>
+    </div>
+
+    <div class="circle">
+        <div class="hand">
+            <div class="hand_hh"></div>
+        </div>
+        <div class="hand">
+            <div class="hand_mm"></div>
+        </div>
+    
+        <div class="hand">
+            <div class="hand_sec"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var cirlce = document.getElementsByClassName('circle');
+    var hand = document.getElementsByClassName('hand');
+    var hands = document.getElementsByClassName('hands');  
+    // childElement   child:div.hand.sec
+    // console.log(hand);
+    // console.log(hands);
+    var i,now;
+
+function doRun() {
+    var now = new Date;
+    var hour = now.getHours();
+    var minu = now.getMinutes()
+    var sec = now.getSeconds() + now.getMilliseconds() / 1000;
+    // 電波錶寫法+getMilliseconds  機械錶 不用加
+    var s;
+
+
+    for (s=0; s < hand.length; s++){
+        // console.log(hand.length);
+        // var x =(s%3);
+        switch (s % 3) {
+            case 2:
+                hand[s].style.transform = 'rotate(' + sec * 6 + 'deg)';
+                break;
+            case 1:
+                hand[s].style.transform = 'rotate(' + minu * 6 + 'deg)';
+                break;
+            case 0:
+                hand[s].style.transform = 'rotate(' + (hour + minu / 60) * 30 + 'deg)';
+                break;
+        
+            default:
+                break;
+        }
+      
+        // if (( s % 3) === 2){
+        //     // console.log("x" + x);
+        //     hand[s].style.transform = 'rotate(' + sec * 6 + 'deg)';
+        // }
+
+        // if ((s % 3) === 1) {
+        //     hand[s].style.transform = 'rotate(' + minu * 6 + 'deg)';
+        // }    
+
+        // if ((s % 3) === 0) {
+        //     hand[s].style.transform = 'rotate(' + (hour + minu / 60) * 30 + 'deg)';
+        // }
+    }
+
+    // hand[2].style.transform = 'rotate('+ sec * 6 +'deg)';
+    // hand[1].style.transform = 'rotate(' + minu * 6 + 'deg)';
+    // hand[0].style.transform = 'rotate(' + (hour + minu/60)* 30 + 'deg)';
+
+    // hand[5].style.transform = 'rotate(' + sec * 6 + 'deg)';
+    // hand[4].style.transform = 'rotate(' + minu * 6 + 'deg)';
+    // hand[3].style.transform = 'rotate(' + (hour + minu / 60) * 30 + 'deg)';
+    // 時針補差
+    setTimeout(doRun, 30)
+    // 1000 =秒
+} 
+
+doRun(); 
+
+// 時間補零
+// function addZ(n) {
+//     // var x = (n.toString()).length;
+//     // return x < 2 ? '0' + n : '' + n;
+//     return n<10 ? '0'+n :''+n;
+// }
+
+// function doRun() { 
+//     now = new Date;
+//     myd.innerHTML = now.getFullYear()+ '-' + 
+//                     addZ((now.getMonth() + 1))    + '-'+
+//                     addZ(now.getDate()) +  ' ' +
+//                     addZ(now.getHours()) + ':' +
+//                     addZ(now.getMinutes() )+ ':' +
+//                     addZ(now.getSeconds());
+//     setTimeout(doRun,1000)                
+// } 
+
+// doRun();                
+</script>    
+    
+</body>
+</html>

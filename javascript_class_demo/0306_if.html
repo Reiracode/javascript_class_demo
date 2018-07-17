@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .mystyle{
+        color:red;
+    }
+    </style>
+    <!--1、輸入欄位取值為字串，視需求應轉成數值 
+         parseInt(document.form1.age.value)
+        2、form裡的都應該有value
+        3、FORM 裡有 button input select all欄位
+        4、參照，之後可用 innerHTM/classList.add
+           var myd = document.getElementById("myd");
+           myd.innerHTML="please come in"; 
+           myd.classList.add("mystyle");
+
+    -->
+</head>
+<body>
+    <form name="form1" action="">
+        <input type="number" name="age" value="0"><br>
+        <select name="gender" id="">
+            <option value="female">girl</option>
+            <option value="male" selected>boy</option>
+        </select>
+
+        <button type="button" onclick="check()">send</button>
+    </form>
+
+    <div id="myd"></div>
+
+    <script>
+    var myd = document.getElementById("myd");
+
+    function check() {
+        var age = parseInt(document.form1.age.value);
+
+        var g = document.form1.gender.value;
+        if (g ==='female' && age >=18){
+            myd.innerHTML="please come in";
+            myd.classList.add("mystyle");
+
+        }else{
+            myd.innerHTML = "come back";
+            myd.classList.remove("mystyle");
+        }
+        
+    }
+    
+    
+    
+    </script>
+    
+</body>
+</html>

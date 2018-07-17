@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .rect{
+            position: relative;
+            width:100vw;
+            height: 900px;
+            background: radial-gradient(circle, #56b0fac7 , #0064fb)    ;
+
+        }
+
+        .ball{
+            position: absolute;
+            width:50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color:wheat;
+            border-radius: 50%;
+            background-color:red;
+            left:20px;
+        }
+    </style>
+</head>
+<body>
+<div id="myd" class="rect">
+    <!-- <div class="ball" id="ball1">ball</div> -->
+</div>
+
+<script>
+// var ball1 = document.getElementById('ball1');
+// ball1.style.left ='10px';
+var el, i ,x;
+var balls=[];
+
+for (i=0;i<200;i++){
+    var el = document.createElement('div');
+    el.className = 'ball';
+    
+    x = parseInt(Math.random() * 1800);
+    y = parseInt(Math.random() * 900);
+    size = 5 + parseInt(Math.random() * 40);
+    color = parseInt(Math.random() * 360);
+    popacity = (Math.random() * 100) / 1000;
+    
+    el.style.left = x +'px';
+    el.style.top = y + 'px';
+    
+    el.style.width = size + 'px';
+    el.style.height = size + 'px';
+
+    // el.style.backgroundColor = 'hsl(' + color + ', 100%,50%)';
+    
+    // el.style.backgroundColor = 'hsl(' + color + ', 100%,50%)';
+    el.style.backgroundColor = 'rgba(255, 255, 255,'+ popacity +')';
+
+    myd.appendChild(el);
+    balls.push(el);
+    
+
+}    
+    // console.log(balls);
+function doRun() { 
+    // 形式參數=區變數
+    balls.forEach(function(el) {
+        var y = parseInt(el.style.top);
+        var x = parseInt(el.style.left);
+         el.style.left = (x +  parseInt(Math.random() * 5)-2) + 'px';
+
+        if (y < -50){
+            el.style.top = (y+1000)+'px' ;
+
+        }else{
+            el.style.top = (y - 1 -parseInt(Math.random()*4) ) + 'px';
+        }
+    });
+
+    // console.log("x"+x);
+    setTimeout(doRun,30);
+}
+
+doRun();
+// setInterval(doRun, 30);
+</script>
+    
+</body>
+</html>

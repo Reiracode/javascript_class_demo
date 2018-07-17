@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: beige;
+        }
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: olive;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid gray;
+            /* transition: left 1s, top 1s;
+            transition-timing-function: ease-in-out; */
+
+            /* animation:位子 */
+        }
+
+        .big-ball{
+            position: absolute;
+            width:80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: aqua;
+            top:260px;
+            left:360px;
+        }
+
+        .active, .big-ball:hover {
+            background-color: rgb(107, 194, 189);
+            /* color: white; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rect" id='myd'>
+        <div class="big-ball" onclick="showMenu()"></div>
+
+    </div>
+
+    <script>
+        var cirlce = document.getElementById('myd');
+        var big_ball = document.getElementsByClassName('big-ball')[0];
+        var ballnum = 12;
+        var angUnit = Math.PI * 2 / ballnum;
+        var balls = [];
+        var menuIsOpen = false;
+
+        for (i = 0; i < ballnum; i++) {
+            el = document.createElement('div');
+            el.className = 'ball';
+
+            x = 380 + parseInt(200 * Math.cos(angUnit * i));
+            y = 280 + parseInt(200 * Math.sin(angUnit * i));
+
+            el.setAttribute('data-bx',380);
+            el.setAttribute('data-by',280);
+            el.setAttribute('data-ex', x);
+            el.setAttribute('data-ey', y);
+
+            el.innerHTML = i + 1;
+            el.style.left = '380px';
+            el.style.top = '280px';      
+
+            myd.appendChild(el);
+            balls.push(el);
+        }
+
+        myd.appendChild(big_ball);
+
+
+        function showMenu() {  
+            var hasAct = big_ball.classList.contains("active");
+            hasAct = !hasAct ;
+        //    if (big_ball.classList.contain("active") == flase) {
+            // menuIsOpen =!menuIsOpen;
+            if (hasAct){
+                // if (menuIsOpen) {
+                balls.forEach(function (el, index) {
+                    setTimeout(() => {
+                        x = el.getAttribute('data-ex');
+                        y = el.getAttribute('data-ey');
+                        el.style.left = x + 'px';
+                        el.style.top = y + 'px';
+                    }, 150 * index);
+                });
+                // big_ball.style.backgroundColor = 'gray';
+                big_ball.classList.add('active');
+            }
+            else{
+                balls.forEach(function (el, index) {
+                    setTimeout(() => {
+                        x = el.getAttribute('data-bx');
+                        y = el.getAttribute('data-by');
+                        el.style.left = x + 'px';
+                        el.style.top = y + 'px';
+                    }, 150 * index);
+                });
+
+                big_ball.classList.remove('active');
+                // big_ball.classList.replace('active','');
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

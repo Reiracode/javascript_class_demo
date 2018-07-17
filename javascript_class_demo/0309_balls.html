@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .rect{
+            position: relative;
+            width:50vw;
+            height: 50vw;
+
+        }
+
+        .ball{
+            position: absolute;
+            width:50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color:wheat;
+            border-radius: 50%;
+            background-color:red;
+            left:20px;
+        }
+    </style>
+</head>
+<body>
+<div id="myd" class="rect">
+    <div class="ball" id="ball1">ball</div>
+</div>
+
+<script>
+var ball1 = document.getElementById('ball1');
+    ball1.style.left="20px";
+var el, i ,x;
+    
+function doRun() {
+    // inline style setting
+    // var x = parseInt(ball1.style.left);
+    // ball1.style.left = (x+2)+'px';
+    // console.log("x"+x);
+
+    var cs = window.getComputedStyle(ball1);
+    console.log("cs"+cs);
+    var x = parseInt(cs.left);
+    ball1.style.left = (x+2)+'px';
+
+    setTimeout(doRun,30);
+}
+
+doRun();
+</script>
+    
+</body>
+</html>

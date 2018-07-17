@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body {
+	font-family: 'Roboto', sans-serif;
+}
+
+
+.conatiner {
+	width: 100%;
+	height: 500px;
+}
+
+.wrap {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+.box {
+/* 	pasition:absolute; */
+	margin: 12px auto;
+	width: 290px;
+	height: 390px;
+	text-align: center;
+	border-radius: 3px;
+	transition: 200ms ease-in-out;
+	box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+.box:hover {
+	margin-bottom: -10px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.7);
+}
+.box h1{
+	/* position:relative; */
+	color: #fff;
+	padding: 30px;
+	margin-top: 100px;
+	text-align: center;
+	font-weight: 100;
+	font-size: 25px;
+	background: rgba(0,0,0,0.8);
+	box-shadow: 0 0 30px rgba(0,0,0,0.7);
+}
+.poster {
+	width: 80px;
+	height: 80px;
+	position: relative;
+	border-radius: 100px;
+	margin: 130px auto;
+}
+.poster h4 {
+	color: #fff;
+	font-size: 40px;
+	text-align: center;
+	font-weight: 100;
+	position: relative;
+	top: 15px;
+}
+.one {
+	background: url('https://source.unsplash.com/900x920');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.two {
+	background: url('https://source.unsplash.com/820x900');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.three {
+	background: url('https://source.unsplash.com/500x500');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.five {
+	background: url('https://source.unsplash.com/550x520');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.six {
+	background: url('https://source.unsplash.com/660x630');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.seven {
+	background: url('https://source.unsplash.com/700x770');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.eight {
+	background: url('https://source.unsplash.com/880x820');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.nine {
+	background: url('https://source.unsplash.com/898x820');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.ten {
+	background: url('https://source.unsplash.com/8998x920');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.eleven {
+	background: url('https://source.unsplash.com/898x960');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.tlv {
+	background: url('https://source.unsplash.com/999x888');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.thirteen {
+	background: url('https://source.unsplash.com/1000x777');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.ftn {
+	background: url('https://source.unsplash.com/2000x777');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.fith {
+	background: url('https://source.unsplash.com/2000x1000');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.sith {
+	background: url('https://source.unsplash.com/3000x1000');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.sevth {
+	background: url('https://source.unsplash.com/9000x9000');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+/* POSTER*/
+.p1 {
+	background: #2b5876;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px darkblue;
+}
+
+.p2 {
+	background: #f857a6;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #ff5858, #f857a6);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #ff5858, #f857a6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px #fa3380;
+}
+
+.p3 {
+	background: #4776E6;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #8E54E9, #4776E6);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #8E54E9, #4776E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px lightblue;
+}
+
+.p4 {
+	background: #1FA2FF;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px skyblue;
+}
+
+
+.p5 {
+	background: #AA076B;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #61045F, #AA076B);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #61045F, #AA076B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px purple;
+}
+
+.p6 {
+	background: #DA22FF;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #9733EE, #DA22FF);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #9733EE, #DA22FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px violet;
+}
+
+.p7 {
+	background: #02AAB0;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #00CDAC, #02AAB0);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #00CDAC, #02AAB0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px lightgreen;
+}
+.p8 {
+	background: #5433FF;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #A5FECB, #20BDFF, #5433FF);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #A5FECB, #20BDFF, #5433FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px lightblue;
+}
+.p9 {
+	background: #2b5876;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #fa3, #fa3380);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #fa3, #fa3380); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px #fa3380;
+}
+
+.p10 {
+	background: #2b5876;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, deepskyblue, lightblue);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, deepskyblue, lightblue); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px darkblue;
+}
+
+.p11 {
+	background: #F2994A;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #F2C94C, #F2994A);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #F2C94C, #F2994A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px lightyellow;
+}
+
+.p12 {
+	background: #A770EF;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px purple;
+}
+
+.p13 {
+	background: #f4c4f3;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #fc67fa, #f4c4f3);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #fc67fa, #f4c4f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px pink;
+}
+.p14 {
+	background: #00c3ff;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #ffff1c, #00c3ff);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #ffff1c, #00c3ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px olive;
+}
+.p15 {
+	background: #5614B0;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #DBD65C, #5614B0);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #DBD65C, #5614B0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: 0 0 20px olive;
+}
+
+.p16 {
+	background: #fc00ff;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #00dbde, #fc00ff);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #00dbde, #fc00ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	box-shadow: 0 0 20px olive;
+}
+    </style>
+</head>
+<body>
+
+    <div class="conatiner">
+        <div class="wrap" id="wrapper">
+    
+            <!-- 	<div class="box one">
+    		<h1>CREATIVITY</h1>
+    		<div class="poster p1">
+    			<h4>Z</h4>
+    		</div>
+    	</div> -->
+    
+    
+    
+        </div>
+    </div>
+
+<script>
+    var myd = document.getElementById('wrapper');
+        var title = ['BOOK', 'ADVENTURE', 'CODE', 'rew'];
+        var pic = ['one', 'two', 'three', 'five'];
+
+        for (i = 0; i <= 3; i++) {
+            var el = document.createElement('div');
+            el.className = 'box' + ' ' + pic[i];
+            // el.className=pic[i];
+            // myd.classList.add("box");
+
+            var tile = document.createElement('h1');
+            // tile.className="h1class";
+            tile.innerHTML = title[i];
+
+            var poster = document.createElement('div');
+            poster.className = 'poster p1'
+
+            var subh4 = document.createElement('h4');
+            subh4.innerHTML = 'R';
+
+            myd.appendChild(el);
+            el.appendChild(tile);
+            el.appendChild(poster);
+            poster.appendChild(subh4);
+
+
+        }
+</script>
+    
+</body>
+</html>

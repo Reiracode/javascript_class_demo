@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myd"></div>
+
+<script>
+    var a=10,b=200;
+    // functionA:closer
+    var func = function () {
+        var a = 100;
+            b = 201;
+        myd.innerHTML += a + ':' + b + '<br>';          
+    }
+
+    func();
+    // functionB:closer
+    (function(){
+        var a = 1111;
+        var b = 999;
+        myd.innerHTML += a + ':' + b + '<br>';   
+        
+    })();
+    // functionC:closer
+    (function () {
+        var a = 'aaa';
+        var b = 'bbb';
+        myd.innerHTML += a + ':' + b + '<br>';   
+    }());
+
+    // functionD:global
+    myd.innerHTML += a + ':' + b + '<br>';   
+</script>
+<!-- 
+    100:201 
+    1111:999 
+    aaa:bbb 
+
+    10:201  ==> functionA:再次宣告到global b
+ -->
+    
+</body>
+</html>

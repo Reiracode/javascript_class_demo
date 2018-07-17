@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 50vw;
+            height: 50vw;
+        }
+
+        .ball{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color:wheat;
+            border-radius: 50%;
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+<div id="myd" class="rect">
+    <!-- <div class="ball">abc</div> -->
+</div>
+
+<script>
+    var myd = document.getElementById('myd');
+    var el, i, k, x, y; 
+    var n = 1;
+
+    // 用i求餘數 位置/座標
+    // for (var i = 0; i <=19 ; i++){
+    //         var el = document.createElement('div');
+    //         el.className = 'ball';
+    //         x = i % 7;
+    //         y = parseInt(i / 7);        
+    //         el.style.top = (50 + x * 70) + 'px'; 
+    //         el.style.left = (50 + y * 60) + 'px'; 
+    //         el.innerHTML = n ;
+    //         myd.appendChild(el);
+    //         n++;
+    // }
+
+
+    for (var i = 0; i <= 9; i++) {
+        for (var k =1 ; k <= 7; k++){  
+        var el = document.createElement('div');
+        el.className = 'ball';
+
+        // X:垂直
+        el.style.top = (50 + i * 70) + 'px'; 
+
+        // Y:水平
+        el.style.left = (50 + k * 60)+'px'; 
+        
+        el.innerHTML = n;
+        myd.appendChild(el);
+        n++;
+        }
+    }
+
+</script>
+    
+</body>
+</html>

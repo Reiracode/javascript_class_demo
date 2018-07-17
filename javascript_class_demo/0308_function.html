@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="myd"></div>
+
+<script>
+    var myd = document.getElementById('myd');
+
+    var func2=function(ar){
+        ar.pop();
+    }
+
+    var br =[5,4,3];
+
+    // 複製 br:5,4,3
+    func2(br.slice());
+    myd.innerHTML += br +'<br>';
+
+    // 參照 br:5,4
+    func2(br);
+    myd.innerHTML += br + '<br>';
+
+    var func = function(a,b) {
+        b = b || 10;
+        console.log(b);
+        // b === undefined ? (b=10) : (b=parseInt(b));
+        myd.innerHTML += a*b +'<br>';
+        console.log(arguments);
+    
+    }
+
+    func(7,0);
+    func(7);
+    func(6,9,10);
+
+
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+    <!-- input#rect   div#rect.myd -->
+    <div class="rect"  id="myd"></div>
+    <input type="text" id="info">
+    
+    <script>
+        var rect = document.getElementById("rect");
+        var info = document.getElementById("info");
+
+        function movess(event) {
+            console.log(event.offsetX,event.offsetY);
+            info.value= (event.offsetX+","+event.offsetY);
+
+        }
+
+        rect.addEventListener("mousemove",movess)
+    
+    
+    </script>
+</body>
+</html>

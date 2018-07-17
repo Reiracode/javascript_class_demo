@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myd"></div>
+<script>
+    
+    var i,myd;
+    for (var i=30; i<=60; i+=2){
+        myd = document.getElementById("myd");
+        console.log(i);
+    
+        //  myd.innerHTML = i + '<br>';
+        // getID 只有一個，只對一個變數存取：前面的是固定的位子 後面的i 一直蓋掉前面的i 最新的
+         myd.innerHTML += i +'<br>';
+        // 位子一直在改變
+    }
+</script>
+</body>
+</html>

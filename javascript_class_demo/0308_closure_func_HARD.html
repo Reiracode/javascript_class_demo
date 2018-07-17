@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="myd"></div>
+
+<script>
+var myd = document.getElementById('myd');
+
+// 儘量避免用全域變數
+function showText(str) {
+    myd.innerHTML+= str +'<br>';
+}
+
+// ----------------------------------------------------
+// 方法一(function(){})()
+// ----------------------------------------------------
+// for(var i=0; i<=10; i++){
+//     (function(k){
+//         setTimeout(function() {    
+//         showText(k); 
+//       },500 * k)} )(i);
+// }
+// ----------------------------------------------------
+// 箭頭表示法
+// for loop 取i=> (i):執行callfunction並傳入參數i
+// for (var i = 0; i <= 10; i++) {
+//     (function (i) {
+//         setTimeout(() => {
+//             showText(i);
+//         }, 500 * i)
+//     })(i);
+// }
+// ----------------------------------------------------
+// ERR XXX wrong 11 這樣會跑11次 showtest=>11
+// for (var i = 0; i <= 10; i++) {
+//     (function (k) {
+//     setTimeout(() => {
+//         showText(i);  
+//     }, 500 * i)})(i);
+// }
+// ----------------------------------------------------
+// 方法二(function(){}())
+// ----------------------------------------------------
+for(let k=0;k<=10;k++){
+    setTimeout(function() {
+        var ar = [2,3,4,5,2,1];
+        return function () {
+            //  console.log(k);
+            // 陣列寫法取餘數
+            // k %= ar.length;
+            // showText(ar[k]);
+            showText(k); }
+    }(),500 * k)
+}
+// ----------------------------------------------------
+// setTimeout call 匿名func 省略(): -> (function(){}) <- ()
+// for (let k = 0; k <= 10; k++) {
+//     setTimeout((function () {
+//         var ar = [2, 3, 4, 5, 2, 1];
+//         return function () {
+//             //  console.log(k);
+//             // 陣列寫法取餘數
+//             // k %= ar.length;
+//             // showText(ar[k]);
+//             showText(k);
+//         }
+//     })(), 500 * k)
+// }
+// ----------------------------------------------------
+// 老師寫法三
+// ----------------------------------------------------
+var func = (function() {
+    var k = 0;
+    return function() {
+        k++;
+        showText(k); 
+    }
+})();
+
+for (i = 0; i < 10; i++) {
+    setTimeout(func,200*i);
+}
+// ----------------------------------------------------
+// 不要直接執行 call func i:區域變數
+// ----------------------------------------------------
+// function cc() {
+//     for (let i = 0; i <=10; i++) {
+//         setTimeout(function() {
+//             showText(i);
+//         },i*500)
+//     }
+// }
+
+// cc();
+// ----------------------------------------------------
+// 完全沒延遲 xERR
+// setTimeout(() => {
+//     for (i = 0; i < 10; i++) {
+//         k++;
+//         showText(k) ;
+//     }
+// }, 2000*i);
+
+// function coundown() {
+//     let i;
+//     console.log("countdown");
+//     for(i=5; i>=0; i--){
+//         setTimeout(function() {
+//             myd.innerHTML+= i +'<br>'
+//         },2000*i)
+//     }
+    
+// }
+// coundown();
+// ----------------------------------------------------
+
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: beige;   
+        }
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: olive;
+            line-height: 40px;
+            text-align: center;
+            border:1px solid gray;
+            transition: left 1s,top 1s;
+            transition-timing-function: ease-in-out;
+
+            /* animation:位子 */
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="rect" id='myd'>
+
+    </div>
+
+    <script>
+        var cirlce = document.getElementById('myd');
+        var ballnum = 12;
+        var angUnit = Math.PI * 2 / ballnum;
+        var balls = [];
+ 
+        for (i = 0; i < ballnum; i++) {
+            el = document.createElement('div');
+            el.className = 'ball';
+
+            x = 400-20 ;
+            y = 300-20 ;
+
+            el.innerHTML = i + 1;
+            el.style.left = x + 'px';
+            el.style.top = y + 'px';
+
+            myd.appendChild(el);
+            // 這邊才加在dom 所以上面transiton看不到
+            balls.push(el);
+
+        }
+
+        // setTimeout(() => {
+        //     for (i = 0; i < ballnum; i++) {
+        //         el = balls[i];
+        //         console.log(balls[i])
+        //         x = 400 - 20 + 200 * Math.cos(angUnit * i);
+        //         y = 300 - 20 + 200 * Math.sin(angUnit * i);
+
+        //         el.innerHTML = i + 1;
+        //         el.style.left = x + 'px';
+        //         el.style.top = y + 'px';
+        //     }  
+        // }, 1000);
+
+
+        balls.forEach(function(el, index) {
+            setTimeout(() => {
+                x = 400 - 20 + 200 * Math.cos(angUnit * index);
+                y = 300 - 20 + 200 * Math.sin(angUnit * index);
+
+                el.style.left = x + 'px';
+                el.style.top = y + 'px';
+                
+            }, 300*index);
+            
+        });
+
+
+    </script>
+
+</body>
+
+</html>

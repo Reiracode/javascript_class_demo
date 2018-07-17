@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: beige;  
+        }
+   
+        .ball{
+            position: absolute;
+            width:10px;
+            height: 10px;
+            border:1px solid wheat;
+            border-radius: 50%;
+            background-color:red;
+            pointer-events: none;
+        
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <div class="rect" id="myd"></div>
+    <input type="text" id="info">
+
+    <script>
+    var myd = document.getElementById("myd");
+    var info = document.getElementById("info");
+
+    var mDown = function(event) {
+        myd.addEventListener("mousemove", mMove);
+    }
+
+    var mUp = function(event) {
+        myd.removeEventListener("mousemove", mMove);
+    }
+
+    var mMove = function myHeader(event) {
+        var b = document.createElement('div');
+        var size = 5 + parseInt(Math.random() * 40);
+        var color = parseInt(Math.random() * 360);
+
+        b.className = 'ball';
+        b.style.left = event.offsetX - size / 2  + 'px';
+        b.style.top = event.offsetY - size / 2 + 'px';
+
+        b.style.backgroundColor = 'hsl(' + color + ', 100%, 50%)';
+        b.style.width = size + 'px';
+        b.style.height = size + 'px';
+
+        myd.appendChild(b);
+
+        console.log(event.offsetX, event.offsetY);
+        info.value = (event.offsetX + "," + event.offsetY);
+
+    };
+
+    myd.addEventListener("mousedown", mDown);
+    myd.addEventListener("mouseup",mUp);
+       
+    </script>
+    
+</body>
+</html>

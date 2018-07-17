@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: beige;
+        }
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            /* border-radius: 50%; */
+            background-color: red;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid gray;
+            top: 120px;
+            left: 120px;
+        }
+
+        .big-ball {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background-color: rgb(6, 90, 90);
+            top: 260px;
+            left: 360px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rect" id='myd'>
+        <div class="big-ball">
+            <div class="ball"></div>
+        </div>
+    </div>
+
+
+
+<script>
+    var myd = document.getElementById('myd');
+    var big_ball = document.getElementsByClassName('big-ball')[0];
+
+    // myd.addEventListener('click',function(event) {
+    //     console.log(event);
+    // });
+ 
+    function myHandler(event) {
+        console.log(event.target);
+        console.log(event.currentTarget);
+        console.log(event);
+        r
+    }
+    // 註冊二個事件處理器
+    myd.addEventListener('click',myHandler);
+    big_ball.addEventListener('click', myHandler);
+    
+    // myd.addEventListener("click",function(event) {
+    //     console.log("bubble");    
+    // });
+
+</script>
+
+</body>
+
+</html>
